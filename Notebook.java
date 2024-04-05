@@ -13,12 +13,12 @@ import javax.sound.sampled.Line;
 
 public class Notebook {
     private String brand;
-    private int ram;
-    private int sdd;
+    private Integer ram;
+    private Integer sdd;
     private String os;
     private String color;
 
-    public Notebook(String brand, int ram, int sdd, String os, String color) {
+    public Notebook(String brand, Integer ram, Integer sdd, String os, String color) {
         this.brand = brand;
         this.ram = ram;
         this.sdd = sdd;
@@ -30,11 +30,11 @@ public class Notebook {
         return brand;
     }
 
-    public int getRam() {
+    public Integer getRam() {
         return ram;
     }
 
-    public int getSdd() {
+    public Integer getSdd() {
         return sdd;
     }
 
@@ -50,11 +50,11 @@ public class Notebook {
         this.brand = brand;
     }
 
-    public void setRam(int ram) {
+    public void setRam(Integer ram) {
         this.ram = ram;
     }
 
-    public void setSdd(int sdd) {
+    public void setSdd(Integer sdd) {
         this.sdd = sdd;
     }
 
@@ -77,9 +77,22 @@ public class Notebook {
 
     }
 
-    public boolean contains(Object value) {
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+           return true;
+        }
+        if(this == null || getClass()!= obj.getClass()){
+            return false;
+        }
+        Notebook notebook = (Notebook) obj;
+        return (this.brand == notebook.brand) && (this.ram == notebook.ram) && (this.sdd== notebook.sdd) && (this.os== notebook.os) &&(this.color == notebook.color);
+    }
+    @Override
+    public int hashCode() {
         
-    }   
+        return Objects.hash(brand, ram, sdd, os, color);
+    }
 }
 
 
