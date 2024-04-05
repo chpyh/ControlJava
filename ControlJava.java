@@ -1,14 +1,9 @@
 package ControlTestJava;
-
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class ControlJava {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args){
         
         // -Создать множество ноутбуков.
@@ -33,23 +28,28 @@ public class ControlJava {
             notebooks.add(notebook5);
             notebooks.add(notebook6);
             notebooks.add(notebook7);
-
+            
+            Notebook searchnote;
+            searchnote = setRequest();
+            for (Notebook note : notebooks) {
+                if(searchnote.equals(note)){
+                    System.out.println(note);
+                }
+            }
+            scanner.close();
 
     }
-
-
-
 
 // Создаем ноутбук по запросу,  с которым будем сравнивать существующие ноутбуки
     
 
-    public Notebook setRequest() {
+    public static Notebook setRequest() {
         System.out.println("Введите запрашиваемые критерии, если критерий неважен, введите 0");
         Notebook searchNotebook = new Notebook(getSearchBrand(), getSearchRam(), getSearchSdd(), getSearchOs(), getSearchColor());
         return searchNotebook;
     }
 
-    public String getSearchBrand() {
+    public static String getSearchBrand() {
         System.out.println("Введите название бренда:");
         String input = scanner.nextLine();
         if(input == "0"){
@@ -57,7 +57,7 @@ public class ControlJava {
         }
         else return input;
     }
-    public Integer getSearchRam() {
+    public static Integer getSearchRam() {
         System.out.println("Введите минимальный объем оперативной памяти:");
         int input = scanner.nextInt();
         if(input == 0){
@@ -66,35 +66,33 @@ public class ControlJava {
         else return input;
     }
 
-    public Integer getSearchSdd() {
-        
+    public static Integer getSearchSdd() {
         System.out.println("Введите минимальный объем жесткого диска:");
         int input = scanner.nextInt();
         if(input == 0){
             return null;
         }
+        
         else return input;
     }
-    public String getSearchOs() {
-        
+    public static String getSearchOs() {
         System.out.println("Введите операционную систему:");
         String input = scanner.nextLine();
+        
         if(input == "0"){
             return null;
         }
         else return input;
     }
 
-    public String getSearchColor() {
-        
-        System.out.println("Введите операционную систему:");
+    public static String getSearchColor() {
+        System.out.println("Введите цвет:");
         String input = scanner.nextLine();
         if(input == "0"){
             return null;
         }
         else return input;
     }
-
 
    }
 
