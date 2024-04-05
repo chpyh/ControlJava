@@ -2,11 +2,13 @@ package ControlTestJava;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class ControlJava {
+    Scanner scanner = new Scanner(System.in);
     public static void main(String[] args){
         
         // -Создать множество ноутбуков.
@@ -33,60 +35,63 @@ public class ControlJava {
             notebooks.add(notebook7);
             findNotebooks(notebooks, setRequest());
     }
+
+
+// Создаем ноутбук по запросу,  с которым будем сравнивать существующие ноутбуки
     
-    // делаем метод, который запрашивает у пользователя, какие критерии ему важны и
-    // возвращает ответ в виде целого числа
-    //Создаем метод, который создает коллекцию "критерий : значение"
-    //создаем коллекции map для хранения пар: число/фильтр - необходимое значение
-    /**
-     * @return
-     */
-    public static Notebook setRequest() {
-        Scanner scanner = new Scanner(System.in);
-        Notebook  noteRequest = new Notebook(null, 0, 0, null, null);
-        int questions = 0;
-        // вызываем метод, который запросит у пользователи интересующие его критерии и
-        // их значения. сохраним их в виде коллекции
-        while (questions <= 5){
-            if (optionsNumber() == 1) {
-                System.out.println("Введите название бренда:");
-                String input = scanner.nextLine();
-               getBrand
-                brand = input;
-            } else if (optionsNumber() == 2) {
-                System.out.println("Введите минимальный объем оперативной памяти:");
-                int input = scanner.nextInt();
-            } else if (optionsNumber() == 3) {
-                System.out.println("Введите минимальный объем жесткого диска:");
-                int input = scanner.nextInt();
-            } else if (optionsNumber() == 4) {
-                System.out.println("Введите операционную систему:");
-                String input = scanner.nextLine();
-            } else if (optionsNumber() == 5) {
-                System.out.println("Введите цвет:");
-                String input = scanner.nextLine();
-            }
 
-            request.put(optionsNumber(), input);
-            question ++;
+    public Notebook setRequest() {
+        Notebook searchNotebook = new Notebook(getSearchBrand(), getSearchRam(), getSearchSdd(), getSearchOs(), getSearchColor());
+        return searchNotebook;
+    }
+
+    public String getSearchBrand() {
+        System.out.println("Введите название бренда:");
+        String input = scanner.nextLine();
+        if(input == "0"){
+            return null;
         }
-        // возвращаем запрос пользователя в виде коллекции
-        return request;
+        else return input;
+    }
+    public Integer getSearchRam() {
+        System.out.println("Введите минимальный объем оперативной памяти:");
+        int input = scanner.nextInt();
+        if(input == 0){
+            return null;
+        }
+        else return input;
     }
 
-    //создаем метод, который запрашивает у пользователя, какие критерии его интересюут
-    public static Integer optionsNumber() {
-        System.out.print("Введите цифру, соответствующую необходимому критерию:\n" + //
-                "    1 - Бренд\n" + //
-                "    2 - Оперативная память\n" + //
-                "    3 - Объем железного диска\n" + //
-                "    4 - Операционная система\n" + //
-                "    5 - Цвет");
-        @SuppressWarnings("resource")
-        int number = new Scanner(System.in).nextInt();
-        return number;
+    public Integer getSearchSdd() {
+        
+        System.out.println("Введите минимальный объем жесткого диска:");
+        int input = scanner.nextInt();
+        if(input == 0){
+            return null;
+        }
+        else return input;
+    }
+    public String getSearchOs() {
+        
+        System.out.println("Введите операционную систему:");
+        String input = scanner.nextLine();
+        if(input == "0"){
+            return null;
+        }
+        else return input;
     }
 
+    public String getSearchColor() {
+        
+        System.out.println("Введите операционную систему:");
+        String input = scanner.nextLine();
+        if(input == "0"){
+            return null;
+        }
+        else return input;
+    }
+
+   
     // пишем метод, который сравнивает значения поиска с элементами коллекции ноутбуков
     public Notebook findNotebooks(HashSet<Notebook> notebooks, HashMap<Integer, Object> request){
         int result = 0;
