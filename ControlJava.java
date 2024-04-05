@@ -33,14 +33,18 @@ public class ControlJava {
             notebooks.add(notebook5);
             notebooks.add(notebook6);
             notebooks.add(notebook7);
-            findNotebooks(notebooks, setRequest());
+
+
     }
+
+
 
 
 // Создаем ноутбук по запросу,  с которым будем сравнивать существующие ноутбуки
     
 
     public Notebook setRequest() {
+        System.out.println("Введите запрашиваемые критерии, если критерий неважен, введите 0");
         Notebook searchNotebook = new Notebook(getSearchBrand(), getSearchRam(), getSearchSdd(), getSearchOs(), getSearchColor());
         return searchNotebook;
     }
@@ -91,22 +95,6 @@ public class ControlJava {
         else return input;
     }
 
-   
-    // пишем метод, который сравнивает значения поиска с элементами коллекции ноутбуков
-    public Notebook findNotebooks(HashSet<Notebook> notebooks, HashMap<Integer, Object> request){
-        int result = 0;
-        for(Notebook element : notebooks){
-            for (Map.Entry<Integer, Object> entry: request.entrySet()){
-                if(element.contains(entry.getValue())) result++;
-            }
-            if(result == request.size()){
-                return element;
-            }
-                
-            }
-        return null;        
-        
-    }
-}
 
+   }
 
