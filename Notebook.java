@@ -79,10 +79,10 @@ public class Notebook {
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj){
+        if(this == obj || this == null){
            return true;
         }
-        if(this == null || getClass()!= obj.getClass()){
+        if(getClass()!= obj.getClass()){
             return false;
         }
         Notebook notebook = (Notebook) obj;
