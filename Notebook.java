@@ -2,23 +2,17 @@
 // методы. Реализовать в java.
 
 package ControlTestJava;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Scanner;
 
-import javax.sound.sampled.Line;
 
 public class Notebook {
     private String brand;
-    private Integer ram;
-    private Integer sdd;
+    private int ram;
+    private int sdd;
     private String os;
     private String color;
 
-    public Notebook(String brand, Integer ram, Integer sdd, String os, String color) {
+    public Notebook(String brand, int ram, int sdd, String os, String color) {
         this.brand = brand;
         this.ram = ram;
         this.sdd = sdd;
@@ -30,11 +24,11 @@ public class Notebook {
         return brand;
     }
 
-    public Integer getRam() {
+    public int getRam() {
         return ram;
     }
 
-    public Integer getSdd() {
+    public int getSdd() {
         return sdd;
     }
 
@@ -50,11 +44,11 @@ public class Notebook {
         this.brand = brand;
     }
 
-    public void setRam(Integer ram) {
+    public void setRam(int ram) {
         this.ram = ram;
     }
 
-    public void setSdd(Integer sdd) {
+    public void setSdd(int sdd) {
         this.sdd = sdd;
     }
 
@@ -73,26 +67,27 @@ public class Notebook {
         return "Бренд: " + brand + 
             ",  оперативная память: " + ram + 
             " ГБ , объем жесткого диска: " + sdd +
-            " ГБ, операционная система: " + os + ", цвет: " + color;
+            " ГБ, операционная система: " + os + 
+            ", цвет: " + color;
 
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj || this == null){
-           return true;
-        }
-        if(getClass()!= obj.getClass()){
-            return false;
-        }
-        Notebook notebook = (Notebook) obj;
-        return (this.brand == notebook.brand) && (this.ram == notebook.ram) && (this.sdd== notebook.sdd) && (this.os== notebook.os) &&(this.color == notebook.color);
-    }
-    @Override
-    public int hashCode() {
-        
-        return Objects.hash(brand, ram, sdd, os, color);
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if(this == obj || this == null){
+//           return true;
+//        }
+//        if(getClass()!= obj.getClass()){
+//            return false;
+//        }
+//        Notebook notebook = (Notebook) obj;
+//        return (this.brand == notebook.brand) && (this.ram == notebook.ram) && (this.sdd== notebook.sdd) && (this.os== notebook.os) &&(this.color == notebook.color);
+//    }
+//    @Override
+//    public int hashCode() {
+//
+//        return Objects.hash(brand, ram, sdd, os, color);
+//    }
 }
 
 
