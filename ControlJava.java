@@ -133,7 +133,9 @@ public class ControlJava {
     }
 }
             
-//            Notebook searchnote;
+//           // Попытка решить задачу, создав виртуальный ноутбук по запрсу и сравнив его с существующими. На данный момент неудачная
+
+//Notebook searchnote;
 //            searchnote = setRequest();
 //            for (Notebook note : notebooks) {
 //                if(searchnote.equals(note)){
