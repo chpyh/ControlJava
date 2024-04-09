@@ -62,9 +62,8 @@ public class ControlJava {
                 int key = entry.getKey();
                 if (key == 1) {
                     String brand = entry.getValue().toString();
-                    if (!notebook.getBrand().equals(brand)) {
+                    if (!notebook.getBrand().equals(brand) || brand != "0") {
                         isFind = false;
-                        System.out.println(brand);
                     }
                 } else if (key == 2) {
                     int ram = (int) entry.getValue();
@@ -78,12 +77,12 @@ public class ControlJava {
                     }
                 } else if (key == 4) {
                     String os = entry.getValue().toString();
-                    if (!notebook.getOs().equals(os)) {
+                    if (!notebook.getOs().equals(os)|| os != "0") {
                         isFind = false;
                     }
                 } else {
                     String color = entry.getValue().toString();
-                    if (!notebook.getColor().equals(color)) {
+                    if (!notebook.getColor().equals(color) || color != "0") {
                         isFind = false;
                     }
                 }
@@ -97,7 +96,6 @@ public class ControlJava {
             }
 
         }
-        System.out.println(findNote);
         return findNote;
 
     }
@@ -112,6 +110,7 @@ public class ControlJava {
     public static Integer getSearchRam() {
         System.out.println("Введите минимальный объем оперативной памяти: ");
         int input = scanner.nextInt();
+        scanner.nextLine();
         return input;
     }
 
@@ -121,12 +120,9 @@ public class ControlJava {
         scanner.nextLine();
         return input;
     }
-
     public static String getSearchOs() {
         System.out.println("Введите операционную систему:");
         String input = scanner.next();
-        scanner.nextLine();
-
         return input;
     }
 
