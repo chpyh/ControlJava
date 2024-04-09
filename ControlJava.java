@@ -69,6 +69,7 @@ public class ControlJava {
     public static Integer getSearchSdd() {
         System.out.println("Введите минимальный объем жесткого диска:");
         int input = scanner.nextInt();
+        scanner.nextLine();
         if(input == 0){
             return null;
         }
