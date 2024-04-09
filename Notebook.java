@@ -72,22 +72,11 @@ public class Notebook {
 
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if(this == obj || this == null){
-//           return true;
-//        }
-//        if(getClass()!= obj.getClass()){
-//            return false;
-//        }
-//        Notebook notebook = (Notebook) obj;
-//        return (this.brand == notebook.brand) && (this.ram == notebook.ram) && (this.sdd== notebook.sdd) && (this.os== notebook.os) &&(this.color == notebook.color);
-//    }
-//    @Override
-//    public int hashCode() {
-//
-//        return Objects.hash(brand, ram, sdd, os, color);
-//    }
+   @Override
+   public int hashCode() {
+
+       return Objects.hash(brand, ram, sdd, os, color);
+   }
 }
 
 
